@@ -2,8 +2,8 @@
 const program = require('commander');
 const inquirer = require('inquirer');
 const info = require('../package.json');
-const { batchWrite } = require('../lib/writeFile');
-const { exportExcel } = require('../lib/toExcel');
+const { batchWrite } = require('../lib/write');
+const { exportExcel } = require('../lib/excel');
 
 program.allowUnknownOption();
 program.version(info.version);
@@ -28,17 +28,16 @@ program.version('0.0.1', '-v, --version')
 
 program.command('export')
 .action(() => {
-    // lang_dir
     inquirer.prompt([
         {
           type: 'input',
           name: 'src_dir',
-          message: '请输入需要导出messages到excel的根目录:'
+          message: '请输入需要导出message的入口目录路径:'
         },
         {
           type: 'input',
           name: 'lang_dir',
-          message: '请输入当前多语言存放根目录:'
+          message: '请输入当前多语言文件的存放目录:'
         },
         {
             type: 'input',
@@ -50,11 +49,3 @@ program.command('export')
       });
 });
 program.parse(process.argv);
-
-// const program = require('commander');
-// program.version('1.0.0', '-v, --version')
-// .command('init')
-// .action(() => {
-// console.log('hahha');
-// });
-// program.parse(process.argv);
