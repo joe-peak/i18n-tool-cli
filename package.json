@@ -1,6 +1,6 @@
 {
   "name": "i18n-tool-cli",
-  "version": "1.0.0",
+  "version": "1.0.02",
   "main": "index.js",
   "license": "MIT",
   "description": "基于node的命令行工具",
@@ -9,7 +9,7 @@
     "excel": "node toExcel.js /Users/keruyun_joe/workspace/github/merchandis-i18n/src"
   },
   "bin": {
-    "joe": "bin/index.js"
+    "i18n-tool": "bin/index.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
