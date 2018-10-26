@@ -30,26 +30,26 @@ program.version(info.version, '-v, --version')
 
 program.command('export')
 .action(() => {
-    inquirer.prompt([
-        {
-          type: 'input',
-          name: 'src_dir',
-          message: '请输入需要导出message的入口目录路径:'
-        },
-        {
-          type: 'input',
-          name: 'lang_dir',
-          message: '请输入当前多语言文件的存放目录:'
-        },
-        {
-            type: 'input',
-            name: 'excel_name',
-            message: '请输入excel文件名:'
-        }
-      ]).then(({ src_dir = process.cwd(), excel_name, lang_dir }) => {
-          const filename = excel_name || 'messages';
-          const langdir = lang_dir || path.join(process.cwd(), 'public/lang');
-          exportExcel(src_dir, filename, langdir);
-      });
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'src_dir',
+      message: '请输入需要导出message的入口目录路径:'
+    },
+    {
+      type: 'input',
+      name: 'lang_dir',
+      message: '请输入当前多语言文件的存放目录:'
+    },
+    {
+        type: 'input',
+        name: 'excel_name',
+        message: '请输入excel文件名:'
+    }
+  ]).then(({ src_dir = process.cwd(), excel_name, lang_dir }) => {
+    const filename = excel_name || 'messages';
+    const langdir = lang_dir || path.join(process.cwd(), 'public/lang');
+    exportExcel(src_dir, filename, langdir);
+  });
 });
 program.parse(process.argv);
